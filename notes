@@ -1,0 +1,3 @@
+when you use [id] its using the id from the database as a url and you use [id] as a catch all for potential id values to display a certain page
+
+you can get the id for the page in props its called params  PostPage ({ params})

@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("OFFLINE_DATABASE_URL")
+  relationMode = "prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Task {
+  id          Int      @id  // Unique task ID
+  title       String   // Task title
+  description String // originally task description was optional should do db push to make changes
+  completed   Boolean  @default(false)  // Task status (completed or not)
+  createdAt   DateTime @default(now())  // When the task was created
+  updatedAt DateTime? @updatedAt       // Automatically updated on modification
+}
