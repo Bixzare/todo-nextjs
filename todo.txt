@@ -1,0 +1,8 @@
+Need to find out how to revaldiate /dashboard/tasks after a task has been deleted
+
+Handle the logic for editing a task using a sheet modal that comes from the right
+
+Explore documention on supabase users and now I can intergrate users into this current
+project
+
+*** DON'T FORGET TO SWITCH BACK TO SUPABASE FROM SQLITE

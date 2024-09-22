@@ -2,16 +2,19 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+// provider = "postgresql"
+  provider = "sqlite"
+  url = env("OFFLINE_DATABASE_URL")
+  //url      = env("DATABASE_URL")
+  //directUrl = env("DIRECT_URL")
   relationMode = "prisma"
 }
+
+
 
 generator client {
   provider = "prisma-client-js"
 }
-
 
 model Task {
   id          Int      @id  // Unique task ID
@@ -21,3 +24,9 @@ model Task {
   createdAt   DateTime @default(now())  // When the task was created
   updatedAt  DateTime @updatedAt       // Automatically updated on modification
 }
+
+// There are three different relations you could have in prisma for asociating a user to a task
+// one to many relationship to tasks  in user declare
+// tasks    Task[] on user schema
+// author User @relation(fields: [authorId], references: [id]) on task schema
+// authorId string

@@ -26,6 +26,36 @@ export async function createTask(formData: FormData){
     redirect("/dashboard/tasks");
 }
 
+export async function getTaskData(taskId:number)
+{   
+    const taskData = await prisma.task.findUnique({
+        where:{
+            id:Number(taskId),
+        },
+    })
+
+    return taskData
+}
+export async function updateTask(formData: FormData){
+
+    console.log("here")
+    const taskId = Number(formData.get('id') as any);
+    await prisma.task.update({
+
+        where:{id:taskId as number},
+        data: {
+           title: formData.get('title') as string,
+           description: formData.get('description') as string,
+        },
+
+    });
+
+    revalidatePath("/dashboard/tasks");
+    redirect("/dashboard/tasks");
+
+
+}
+
 /** data:{
             title: "Post created locally",
             description: "This post was created in the actions.ts file",

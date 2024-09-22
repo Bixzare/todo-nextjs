@@ -2,14 +2,13 @@ import Cards from "@/app/ui/tasks/cards"
 import React from 'react';
 import{PlusCircleIcon} from '@heroicons/react/24/outline';
 import Link from "next/link";
-import getTasks from "@/app/lib/actions";
-import prisma from "@/app/lib/db";
-
+import getTasks from "@/app/lib/getTasksFromDB";
+import { revalidatePath } from "next/cache";
 
 export default async function Page()
 {
-    const data = await prisma.task.findMany();
-   
+    const data =  await getTasks()
+    
 
     return(
         <div className = "p-4 flex flex-col items-start">
@@ -17,7 +16,7 @@ export default async function Page()
             <h1 className = "text-4xl font-bold mb-4 text-white ml-3">All Tasks </h1>
             <Link href ='/dashboard/tasks/create-task'><PlusCircleIcon className = "w-14 mr-3 text-white"/></Link>
             </div>
-            <div className = "max-h-[80vh] overflow-y-auto w-full">
+            <div className = "max-h-[80vh] overflow-y-auto w-full overflow-x-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-500/20 scrollbar-track-transparent">
             <Cards data ={data}/>
             </div>
         </div>
