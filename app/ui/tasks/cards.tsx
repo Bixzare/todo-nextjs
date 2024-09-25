@@ -21,7 +21,7 @@ import { useRouter } from 'next/navigation';
     createdAt: string; 
     updatedAt: string; 
   }
-export default function RandomInfoComponent({data}: {data: any}) {
+export default function tasksComponent({data}: {data: any}) {
 
 //const [currentTask, setCurrentTask] = useState<Task | null>(null); // Correct type for the task state
 const router = useRouter()
@@ -104,3 +104,5 @@ return (
   </div>
 );
 };
+
+// revalidate path works right if its a server component

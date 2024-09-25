@@ -6,3 +6,11 @@ Explore documention on supabase users and now I can intergrate users into this c
 project
 
 *** DON'T FORGET TO SWITCH BACK TO SUPABASE FROM SQLITE
+
+
+********** TODO FOR TOMOROW
+
+CRUD but matching supa auth userId to task userId (server side as much as possible)
+Add spiner to login/signup page        
+Account Page should have logic to edit account info
+Error handling, redirecting to error page and passing props to describe error

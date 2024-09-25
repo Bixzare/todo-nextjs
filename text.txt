@@ -1,1 +1,3 @@
 when you change the state of the client side component to match the server one need to a check to make sure ther was no error in changing the server side before doing client side one
+
+Note if want to use server side rendering but have a client component , put that component into its own file and import it , pass props if needed , isolate client components and server components server is preferred

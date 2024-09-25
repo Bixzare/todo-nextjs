@@ -7,6 +7,7 @@ import{
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import clsx from 'clsx';
+import { logout } from '@/app/logout/actions';
 
 // Map of links to display in the side nav
 // depending on size of app, this would be stored in database
@@ -43,10 +44,10 @@ const links = [
         })}
 
             
-            <Link href = "/"  className='flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-black hover:text-white md:flex-none md:justify-start md:p-2 md:px-3 text-black'>
+            <div  className='flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-black hover:text-white md:flex-none md:justify-start md:p-2 md:px-3 text-black'>
             <ArrowLeftIcon className = "w-6"/>
-            <button >Sign Out
-                </button></Link>
+            <button onClick ={() => logout()}>Sign Out
+                </button></div>
         {/*Write logic for sign out here use either pop up or another page to confirm if user wants to sign out */}
         </>
         

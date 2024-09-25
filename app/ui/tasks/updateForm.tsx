@@ -1,11 +1,9 @@
 'use server'
 
-import { updateTask,getTaskData } from "@/actions/actions"
+import { updateTask} from "@/actions/actions"
 
 export default async function UpdateForm(data:any){
-    const test = getTaskData(data)    
    
-    // console.log(test)
 
     return(
         <div className="flex justify-center items-start h-screen w-full p-4 mt-20">
