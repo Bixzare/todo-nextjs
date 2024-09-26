@@ -14,7 +14,7 @@ datasource db {
 
 
 model Task {
-  id          Int      @id
+  id          Int       @id @default(autoincrement()) // Automatically incrementing ID
   title       String
   description String
   completed   Boolean  @default(false)
@@ -24,3 +24,4 @@ model Task {
   @@index([userId]) // Index for faster lookup based on userId
 }
 // idea is you asign userId from supabase auth to the value in the db and call supabase id to pass to create/read/update/delete
+

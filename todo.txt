@@ -10,7 +10,10 @@ project
 
 ********** TODO FOR TOMOROW
 
-CRUD but matching supa auth userId to task userId (server side as much as possible)
-Add spiner to login/signup page        
 Account Page should have logic to edit account info
-Error handling, redirecting to error page and passing props to describe error
+possibly done  = Error handling, redirecting to error page and passing props to describe error
+
+sign up confirm password and make sure its longer than 6 and other sign up constraints
+ account page editing username and email and possibly password as well as login forgot password
+
+ maybe maybe maybe avatar image and supabase storage

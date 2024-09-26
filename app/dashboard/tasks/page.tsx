@@ -1,10 +1,10 @@
 import Cards from "@/app/ui/tasks/cards"
-import React from 'react';
+import React, { Suspense} from 'react';
 import{PlusCircleIcon} from '@heroicons/react/24/outline';
 import Link from "next/link";
 import getTasks from "@/app/lib/getTasksFromDB";
-import { revalidatePath } from "next/cache";
-
+import Spinner from "@/app/ui/loading/spinner";
+//import TaskLoader from "./TaskLoader";
 export default async function Page()
 {
     const data =  await getTasks()
@@ -17,7 +17,8 @@ export default async function Page()
             <Link href ='/dashboard/tasks/create-task'><PlusCircleIcon className = "w-14 mr-3 text-white"/></Link>
             </div>
             <div className = "max-h-[80vh] overflow-y-auto w-full overflow-x-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-500/20 scrollbar-track-transparent">
-            <Cards data ={data}/>
+            {/* {<TaskLoader/>} */}
+            <Cards data = {data}/>
             </div>
         </div>
     )
