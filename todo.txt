@@ -17,3 +17,8 @@ sign up confirm password and make sure its longer than 6 and other sign up const
  account page editing username and email and possibly password as well as login forgot password
 
  maybe maybe maybe avatar image and supabase storage
+
+password reset working 
+
+setup logic for signing up but user exists already
+ 

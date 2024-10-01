@@ -44,10 +44,11 @@ const links = [
         })}
 
             
-            <div  className='flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-black hover:text-white md:flex-none md:justify-start md:p-2 md:px-3 text-black'>
+            <div  className='flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-black hover:text-white md:flex-none md:justify-start md:p-2 md:px-3 text-black hover:cursor-pointer'
+            onClick ={() => logout()}>
             <ArrowLeftIcon className = "w-6"/>
-            <button onClick ={() => logout()}>Sign Out
-                </button></div>
+            <h1>Sign Out
+                </h1></div>
         {/*Write logic for sign out here use either pop up or another page to confirm if user wants to sign out */}
         </>
         

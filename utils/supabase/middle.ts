@@ -35,6 +35,8 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
+  // const publicUrls = ['/reset'];
+  // if (publicUrls.includes(supabaseResponse.nextUrl.pathname))
   if (
     !user &&
     !request.nextUrl.pathname.startsWith('/login') &&

@@ -3,22 +3,51 @@ import { signup} from './actions'
 import Link from 'next/link'
 import { useState,useEffect } from 'react';
 import Spinner from '../ui/loading/spinner';
+import { useSearchParams } from 'next/navigation';
+import { redirect } from 'next/navigation';
+
 export default function LoginPage() {
 
   const [isLoading,setIsLoading]  = useState(false);
+  const searchParams = useSearchParams();
+  const errorMessage = searchParams.get('error');
+
+  useEffect(() => {
+    if (errorMessage) {
+      alert(errorMessage); // Display alert if there's an error message
+    }
+  }, [errorMessage]);
 
   const handleSubmit = async (event:any) => {
+
     event.preventDefault();
     setIsLoading(true);
+
+
+
     const formData = new FormData(event.target);
-    
-    try {
-      await signup(formData);
+    if(formData.get("password") !== formData.get("psw-cnf"))
+    {
+      console.log(`${formData.get("password")},${formData.get("psw-cnf")}`)
+      alert("Passwords don't match !")      
+      setIsLoading(false);
+
+      return;
+    }
+    else{
+      try {
+       const response = await signup(formData);
+        if(response.status = 'error'){
+          alert(response.message);
+        }
       // Handle successful task creation (e.g., show a success message or redirect)
     } catch (error) {
       // Handle error (e.g., show an error message)
       console.error('Error creating task:', error);
     }
+
+    }
+    
   };
   useEffect(() => {
     // Cleanup function to reset loading state
@@ -60,6 +89,7 @@ export default function LoginPage() {
                 type="password" 
                 required 
                 className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                minLength={6}
               />
             </div>
             <div>
@@ -70,6 +100,7 @@ export default function LoginPage() {
                 type="password" 
                 required 
                 className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                minLength={6}
               />
             </div>
             <button 
